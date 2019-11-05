@@ -10,7 +10,7 @@ WITH SERDEPROPERTIES (
    'escapeChar' = '\\'
    )
 STORED AS TEXTFILE
-LOCATION 's3://fmcsa-data-johnl/inspections/'
+LOCATION 's3://fsi402-data-jlucking/inspections/'
 TBLPROPERTIES ('has_encrypted_data'='false');
 
 -------------------------------------------------------------------------
@@ -26,13 +26,8 @@ WITH SERDEPROPERTIES (
    'escapeChar' = '\\'
    )
 STORED AS TEXTFILE
-LOCATION 's3://fmcsa-data-johnl/crashes/'
+LOCATION 's3://fsi402-data-jlucking/crashes/'
 TBLPROPERTIES ('has_encrypted_data'='false');
-
--------------------------------------------------------------------------
-Crimes table bulk add field list
-
-State string,City string,Population bigint,Violent_Crime int,Murder int,Rape int,Robbery int,Assault int,Property_Crime int,Burglary int,Larceny_Theft int,Motor_Vehicle_Theft int,Arson int
 
 -------------------------------------------------------------------------
 Create dots table
@@ -47,5 +42,10 @@ WITH SERDEPROPERTIES (
    'escapeChar' = '\\'
    )
 STORED AS TEXTFILE
-LOCATION 's3://fmcsa-data-johnl/dots/'
+LOCATION 's3://fsi402-data-jlucking/dots/'
 TBLPROPERTIES ('has_encrypted_data'='false');
+
+-------------------------------------------------------------------------
+Crimes table bulk add field list
+s3://fsi402-data-jlucking/crimes/
+State string,City string,Population bigint,Violent_Crime int,Murder int,Rape int,Robbery int,Assault int,Property_Crime int,Burglary int,Larceny_Theft int,Motor_Vehicle_Theft int,Arson int
