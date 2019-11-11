@@ -109,6 +109,32 @@ raas_Calc_Crash_Modifier
 }
 
 --------------------------------------------------------------------------------
+raas_Calc_Crime_Modifier
+{
+  "submission": "Commercial Trucking Submission with numerous Violations and Crashes",
+  "data": {
+    "dotnum": 3259,
+    "coverage": 2000000,
+    "lighttrucks": 20,
+    "medtrucks": 15,
+    "heavytrucks": 63,
+    "policyterm": 1
+  },
+  "BasePremiumResults": {
+    "BasePremium": 26925
+  },
+  "InspModifierResults": {
+    "InspectionModifier": 1.213520197856554,
+    "Violations": 259,
+    "Inspections": 1213
+  },
+  "CrashModifierResults": {
+    "CrashModifier": 2,
+    "Crashes": "70"
+  }
+}
+
+--------------------------------------------------------------------------------
 raas_Calc_Final_Premium lambda
 
 {

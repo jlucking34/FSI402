@@ -1,0 +1,6 @@
+# fsi402bucketsuffix
+aws ssm put-parameter --name "fsi402bucketsuffix" --value "jlucking" --type String
+
+aws ssm get-parameter --name "fsi402bucketsuffix" --output table
+
+aws ssm get-parameters --names "fsi402bucketsuffix" --query Parameters[0].Value --output text

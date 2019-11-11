@@ -1,0 +1,11 @@
+# FMCSA Inspection Data
+aws s3 cp s3://builders-session-2019/2019Sep_Inspection.txt s3://fsi402-data-$(aws ssm get-parameters --names "fsi402bucketsuffix" --query Parameters[0].Value --output text)/inspections/
+
+# FMCSA Crash Data
+aws s3 cp s3://builders-session-2019/2019Sep_crash.txt s3://fsi402-data-$(aws ssm get-parameters --names "fsi402bucketsuffix" --query Parameters[0].Value --output text)/crashes/
+
+# FMCSA DOT Company Data
+aws s3 cp s3://builders-session-2019/2019Sep_dots.txt s3://fsi402-data-$(aws ssm get-parameters --names "fsi402bucketsuffix" --query Parameters[0].Value --output text)/dots/
+
+# Crime Data
+aws s3 cp s3://builders-session-2019/2014CrimebyStatebyTown.csv s3://fsi402-data-$(aws ssm get-parameters --names "fsi402bucketsuffix" --query Parameters[0].Value --output text)/crimes/
