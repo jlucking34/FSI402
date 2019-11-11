@@ -1,4 +1,0 @@
-aws s3 cp s3://builders-session-2019/2019Sep_Inspection.txt s3://fsi402-data-jlucking/inspections/
-aws s3 cp s3://builders-session-2019/2019Sep_crash.txt s3://fsi402-data-jlucking/crashes/
-aws s3 cp s3://builders-session-2019/2019Sep_dots.txt s3://fsi402-data-jlucking/dots/
-aws s3 cp s3://builders-session-2019/2014CrimebyStatebyTown.csv s3://fsi402-data-jlucking/crimes/
