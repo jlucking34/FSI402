@@ -1,0 +1,38 @@
+aws stepfunctions create-state-machine\
+ --name "raas"\
+ --role-arn "arn:aws:iam::$(aws sts get-caller-identity --query Account --output text):role/raas_StepFunction"\
+ --definition "{
+  \"Comment\": \"Rating as a Service\",
+  \"StartAt\": \"raasCalcBasePremium\",
+  \"States\": {
+    \"raasCalcBasePremium\": {
+      \"Type\": \"Task\",
+      \"Resource\": \"arn:aws:lambda:us-east-1:$(aws sts get-caller-identity --query Account --output text):function:raas_Calc_Base_Premium\",
+      \"InputPath\": \"$\",
+      \"ResultPath\": \"$.BasePremiumResults\",
+      \"OutputPath\": \"$\",
+      \"Next\": \"raasCalcInspectionModifier\"},
+    \"raasCalcInspectionModifier\": {
+      \"Type\": \"Task\",
+      \"Resource\": \"arn:aws:lambda:us-east-1:$(aws sts get-caller-identity --query Account --output text):function:raas_Calc_Inspection_Modifier\",
+      \"InputPath\": \"$\",
+      \"ResultPath\": \"$.InspModifierResults\",
+      \"OutputPath\": \"$\",
+      \"Next\": \"raasCalcCrashModifier\"},
+    \"raasCalcCrashModifier\": {
+      \"Type\": \"Task\",
+      \"Resource\": \"arn:aws:lambda:us-east-1:$(aws sts get-caller-identity --query Account --output text):function:raas_Calc_Crash_Modifier\",
+      \"InputPath\": \"$\",
+      \"ResultPath\": \"$.CrashModifierResults\",
+      \"OutputPath\": \"$\",
+      \"Next\": \"raasCalcFinalPremium\"},
+    \"raasCalcFinalPremium\": {
+      \"Type\": \"Task\",
+      \"Resource\": \"arn:aws:lambda:us-east-1:$(aws sts get-caller-identity --query Account --output text):function:raas_Calc_Final_Premium\",
+      \"InputPath\": \"$\",
+      \"ResultPath\": \"$.FinalPremiumResults\",
+      \"OutputPath\": \"$\",
+      \"End\": true
+      }
+    }
+}"
