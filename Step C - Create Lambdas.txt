@@ -6,7 +6,7 @@ aws lambda create-function \
 	--role arn:aws:iam::$(aws sts get-caller-identity --query Account --output text):role/raas_LambdaExecution \
 	--handler raas_Calc_Base_Premium.lambda_handler \
 	--timeout 30 \
-	--zip-file fileb://FSI402/raas_Calc_Base_Premium.py.zip
+	--zip-file fileb://raas_Calc_Base_Premium.py.zip
  
 # Inspection Modifier
 aws lambda create-function \
@@ -16,7 +16,7 @@ aws lambda create-function \
 	--role arn:aws:iam::$(aws sts get-caller-identity --query Account --output text):role/raas_LambdaExecution \
 	--handler raas_Calc_Inspection_Modifier.lambda_handler \
 	--timeout 180 \
-	--zip-file fileb://FSI402/raas_Calc_Inspection_Modifier.py.zip
+	--zip-file fileb://raas_Calc_Inspection_Modifier.py.zip
 
 # Crash Modifier
 aws lambda create-function \
@@ -26,7 +26,7 @@ aws lambda create-function \
 	--role arn:aws:iam::$(aws sts get-caller-identity --query Account --output text):role/raas_LambdaExecution \
 	--handler raas_Calc_Crash_Modifier.lambda_handler \
 	--timeout 180 \
-	--zip-file fileb://FSI402/raas_Calc_Crash_Modifier.py.zip
+	--zip-file fileb://raas_Calc_Crash_Modifier.py.zip
 
 # Final Premium
 aws lambda create-function \
@@ -36,7 +36,7 @@ aws lambda create-function \
 	--role arn:aws:iam::$(aws sts get-caller-identity --query Account --output text):role/raas_LambdaExecution \
 	--handler raas_Calc_Final_Premium.lambda_handler \
 	--timeout 30 \
-	--zip-file fileb://FSI402/raas_Calc_Final_Premium.py.zip
+	--zip-file fileb://raas_Calc_Final_Premium.py.zip
 
 # Crime Modifier
 aws lambda create-function \
@@ -46,4 +46,4 @@ aws lambda create-function \
 	--role arn:aws:iam::$(aws sts get-caller-identity --query Account --output text):role/raas_LambdaExecution \
 	--handler raas_Calc_Crime_Modifier.lambda_handler \
 	--timeout 180 \
-	--zip-file fileb://FSI402/raas_Calc_Crime_Modifier.py.zip
+	--zip-file fileb://raas_Calc_Crime_Modifier.py.zip
